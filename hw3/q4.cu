@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-const int k = 21;
+const int k = 20;
 
 __global__ void sortOddEven(unsigned long long *a, unsigned long long n, unsigned long long phase) {
 	unsigned long long i = blockIdx.x * blockDim.x + threadIdx.x;
@@ -49,7 +49,7 @@ int main() {
 		d_a[j] = temp;
 	}
 
-	unsigned long long blockSize = 1024;
+	unsigned long long blockSize = 4096;
 	unsigned long long gridSize = (unsigned long long)ceil(float(n)/(blockSize));
 
 	cudaEventRecord(start);
