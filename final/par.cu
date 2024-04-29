@@ -5,7 +5,7 @@
 
 #define BIN_COUNT 16
 
-const int k = 29;
+const int k = 28;
 const int numPerThread = 16;
 
 __global__ void sortIntoBins(double* arr, int* bins) {
@@ -82,7 +82,7 @@ int main() {
 
 	// print out number in each bin
 	for(int i = 0; i < BIN_COUNT; i++) {
-		// printf("Bin %d: %d\n", i+1, bins[i]);
+		printf("Bin %d: %d\n", i+1, bins[i]);
 		sum += bins[i];
 	}
 
