@@ -3,7 +3,7 @@
 #include <math.h>
 #include <time.h>
 
-const int k = 12;
+const int k = 30;
 
 double randDouble(double min, double max)
 {
@@ -33,16 +33,17 @@ int main() {
 		bins[i] = 0;
 	}
 
-	// test print array
-	// for(int i = 0; i < n; i++) {
-	// 	printf("%.4f\n", arr[i]);
-	// }
+	clock_t begin = clock();
 
 	// sort array into bins
 	for(int i = 0; i < n; i++) {
-		int bin = floor((int)arr[i] % bin_count);
+		int bin = (int)arr[i] % bin_count;
 		bins[bin]++;
 	}
+
+	clock_t end = clock();
+	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+	printf("Time: %.7f seconds\n", time_spent);
 
 	int sum = 0;
 
